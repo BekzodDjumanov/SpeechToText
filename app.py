@@ -18,7 +18,7 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 # Initialize Whisper model (use the "base" model for this example)
-model = whisper.load_model("medium")
+model = whisper.load_model("base")
 
 warnings.filterwarnings("ignore", message="FP16 is not supported on CPU")
 
