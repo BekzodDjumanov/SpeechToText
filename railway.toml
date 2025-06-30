@@ -1,2 +1,2 @@
 [build]
-packages = ["ffmpeg"]
+postinstall = "apt-get update && apt-get install -y ffmpeg"
