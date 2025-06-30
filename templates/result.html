@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transcription Success</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div id="loading-overlay" class="hidden">
+    <div id="wifi-loader">
+      <svg class="circle-outer" viewBox="0 0 86 86">
+          <circle class="back" cx="43" cy="43" r="40"></circle>
+          <circle class="front" cx="43" cy="43" r="40"></circle>
+          <circle class="new" cx="43" cy="43" r="40"></circle>
+      </svg>
+      <svg class="circle-middle" viewBox="0 0 60 60">
+          <circle class="back" cx="30" cy="30" r="27"></circle>
+          <circle class="front" cx="30" cy="30" r="27"></circle>
+      </svg>
+      <svg class="circle-inner" viewBox="0 0 34 34">
+          <circle class="back" cx="17" cy="17" r="14"></circle>
+          <circle class="front" cx="17" cy="17" r="14"></circle>
+      </svg>
+      <div class="text" data-text="Transcribing your Audio"></div>
+    </div>
+
+      </div>
+  
+  <div class="page-wrapper">
+  <section class="header">
+    <div class="globe"><i class="fa-solid fa-globe"></i></div>
+
+    <h1 class="logo">Bekzod <span2 class="special-text">Djumanov</span2></h1>
+    </section>
+
+  <section class="result">
+    <h1 class="transcribed-result"><i class="fa-solid fa-wand-magic-sparkles"></i> Transcription <span3>Result</span3></h1>
+    <p><strong>Transcribed Text:</strong></p>
+
+    <pre>{{ transcription }} </pre>
+    
+    <a href="{{ url_for('index') }}"><i class="fa-solid fa-arrow-left"></i> Back to Transcription</a>
+    <a href="https://translate.google.com/?sl=auto&tl=en&text={{ transcription }}&op=translate">Translate <i class="fa-solid fa-arrow-right"></i></a>
+  </section>
+
+  <!--h1 class="quote">"What then is truth? A mobile army of metaphors, metonymies, anthropomorphisms…"</h1>
+  <h1 class="author">- Friedrich Nietzsche, On Truth and Lies in a Nonmoral Sense</h1>
+-->
+  <footer class="footer">
+        
+    <p class="copyright">&copy; Bekzod Djumanov | All Rights Reserved</p>
+</footer>
+</div>
+
+</body>
+</html>
+<script src="https://unpkg.com/scrollreveal"></script>
+<script src="{{ url_for('static', filename='result.js') }}"></script>
+<!--<script src="result.js"></script>-->
