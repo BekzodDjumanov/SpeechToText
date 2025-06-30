@@ -1,4 +1,4 @@
-# SoundToText# Whisper Audio-to-Text API 🎙️➡️📝
+# AI Audio-to-Text API 🎙️➡️📝
 
 A Flask-based REST API that uses OpenAI's Speech Recognition model to convert uploaded `.mp3` audio files into transcribed text.
 
