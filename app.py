@@ -5,19 +5,17 @@ import warnings
 
 app = Flask(__name__)
 
-# Set up folder to save uploaded files
 UPLOAD_FOLDER = 'uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-# Allow only MP3 files
 ALLOWED_EXTENSIONS = {'mp3'}
 
-# Check if file is an allowed type
+# input validation for files
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-# Initialize Whisper model (use the "base" model for this example)
+# for better results, please select large or medium (tiny, base, small, medium, large, turbo (not recommended for translating non-english tasks))
 model = whisper.load_model("small")
 
 warnings.filterwarnings("ignore", message="FP16 is not supported on CPU")
@@ -25,39 +23,37 @@ warnings.filterwarnings("ignore", message="FP16 is not supported on CPU")
 
 @app.route('/')
 def index():
-    # Render the upload form (index.html)
+    # upload form
     return render_template('index.html')
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
-    # Check if file is part of the request
+    # file validation
     if 'file' not in request.files:
         return 'No file part', 400
     
     file = request.files['file']
     
-    # If no file is selected, return error
+    # more file validation
     if file.filename == '':
         return 'No selected file', 400
 
     
-    # If the file is allowed, process it
+    # passed all validation checks
     if file and allowed_file(file.filename):
         filename = file.filename
-        filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename) # for upload folder
         file.save(filepath)
 
-        # Transcribe the MP3 file using Whisper
         transcription = transcribe_using_whisper(filepath)
 
-        # Redirect to the result page with the transcription
+        # returns result.html
         return render_template('result.html', transcription=transcription)
 
-    # If file type is not allowed
+    # file validation
     return 'Invalid file type. Please upload an MP3 file.', 400
 
 def transcribe_using_whisper(audio_filepath):
-    # Use Whisper to transcribe the audio file
 
     result = model.transcribe(audio_filepath)
 
@@ -65,3 +61,8 @@ def transcribe_using_whisper(audio_filepath):
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
+
+''' when running locally, please reference:
+if __name__ == '__main__':
+    app.run(debug=True)
+'''

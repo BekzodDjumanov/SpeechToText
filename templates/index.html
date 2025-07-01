@@ -101,10 +101,14 @@
       ease: "power4.inOut",
     });
 
-    gsap.to(".disclaimer", 3, {
-      x: "350",
+    gsap.to(".disclaimer", {
+      duration: 3,
+      x: 350,
       ease: "power4.inOut",
       delay: 3,
+      onComplete: () => {
+        document.querySelector(".disclaimer").style.display = "none";
+      }
     });
 
     gsap.registerPlugin(SplitText, ScrollTrigger);

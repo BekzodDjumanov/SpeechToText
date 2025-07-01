@@ -1,34 +1,32 @@
 document.getElementById('upload-form').addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent immediate form submission
+  event.preventDefault();
 
-  // Show the loading overlay by changing its display property before animation
   const loadingOverlay = document.getElementById('loading-overlay');
-  loadingOverlay.style.display = 'flex'; // Set to flex to make it visible
+  loadingOverlay.style.display = 'flex'; // set to flex to make it visible
 
-  // Animate the overlay into view using GSAP
+  // GSAP animation
   gsap.fromTo(loadingOverlay, 
-    { opacity: 0, y: "-300" }, // Initial state (invisible and above)
+    { opacity: 0, y: "-300" },
     {
       opacity: 1, 
       y: "0", 
       duration: 2, 
       ease: 'power2.out',
       onStart: function() {
-        // Disable the submit button during the animation to prevent multiple submissions
+        // prevent submitting multiple requests
         document.querySelector('button[type="submit"]').disabled = true;
       },
       onComplete: () => {
-        // Re-enable the submit button after animation completes
+        // re-enable inbound requests
         document.querySelector('button[type="submit"]').disabled = false;
 
-        // Submit the form
-        this.submit(); // Trigger the actual form submission
+        this.submit(); // trigger form submission
       }
     }
   );
 });
   
-
+// library for movement
 const sr = ScrollReveal ({
     distance: '65px',
     duration: 2600,

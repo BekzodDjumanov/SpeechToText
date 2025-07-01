@@ -1,3 +1,4 @@
+// library for movement
 const sr = ScrollReveal ({
     distance: '65px',
     duration: 2600,

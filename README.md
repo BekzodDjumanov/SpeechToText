@@ -16,7 +16,7 @@ With the prevalence of artifical intelligence, the opportunities for discovering
 ## 🔒 Security
 ***All files and relavent data is kept anonymous and secured.***
 
-⚔️ The ethical framework of this project remains and will not contravene with the ethical foundation of programming and software application. ⚔️
+⚔️ The framework of this project remains and will not contravene with the ethical foundation of programming and software application. ⚔️
 ## 🔧 Requirements
 
 - Python 3.8+
@@ -26,6 +26,10 @@ With the prevalence of artifical intelligence, the opportunities for discovering
 - FFmpeg (for audio decoding)
 
 - Modern web browser (for frontend interface)
+
+- Flask
+
+- Whisper AI
 
 ## 📦 Application
 
