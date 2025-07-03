@@ -57,7 +57,17 @@ def transcribe_using_whisper(audio_filepath):
 
     result = model.transcribe(audio_filepath)
 
-    return result['text']
+    segments = result['segments']
+    
+    # iterate through to identify start and end segments
+    lines = []
+    for segment in segments:
+        start = segment['start']
+        end = segment['end']
+        text = segment['text'].strip()
+        lines.append(f"[{start:.2f} - {end:.2f}] {text}")
+
+    return '\n\n'.join(lines)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
