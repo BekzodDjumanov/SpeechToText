@@ -25,6 +25,10 @@ document.getElementById('upload-form').addEventListener('submit', function(event
     }
   );
 });
+
+document.querySelector('.dark-light-btn').addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+});
   
 // library for movement
 const sr = ScrollReveal ({

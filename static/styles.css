@@ -1,16 +1,33 @@
+:root {
+  --bg-color: #fff;
+  --text-color: #1d1d1f;
+  --header: rgba(255, 255, 255, 0.3);
+  --hero: #1d1d1d;
+}
+
+body.dark-mode {
+  --bg-color: hsl(240 20% 2%);
+  --text-color: #fff;
+  --header: rgba(0, 0, 0, 0.3);
+  --hero: #F8F5EF;
+}
+body.dark-mode .hero-card::before {
+  display: none;
+}
 body, html {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    color: #fff;
+    color: var(--bg-color);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: #fff;
+    background: var(--bg-color);
     flex-direction: column;
     padding: 0;
     overflow-x: hidden;
     width: 100%;
+    transition: background-color 0.7s ease-in-out, color 0.7s ease-in-out;
   }
   span{
     color: #6e6e73;
@@ -251,11 +268,11 @@ body, html {
     padding: 6rem 2rem 4rem;
     text-align: center;
     min-height: 100vh;
-    color: white;
+    color: var(--bg-color);
   }
   .disclaimer {
-    background: #141414;
-    color: #fff;
+    background: var(--text-color);
+    color: var(--bg-color);
     padding: 0.4rem 0.8rem;
     margin: 1rem auto;
     text-align: center;
@@ -273,6 +290,58 @@ body, html {
     z-index: 10;
     animation: fadeOut 3s ease-in-out forwards 3s;
   }
+  .dark-light-btn {
+    position: fixed;
+    top: 8rem;
+    left: 40px;
+    width: 50px;
+    height: 50px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #f0f0f0, #dcdcdc);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+  
+  .icon-sun,
+  .icon-moon {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .icon-sun {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .icon-moon {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  
+  body.dark-mode .icon-sun {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  
+  body.dark-mode .icon-moon {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  body.dark-mode .dark-light-btn {
+    background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+  }
+  
   @keyframes fadeOut{
     0%{
       opacity: 1;
@@ -301,7 +370,7 @@ body, html {
     justify-content: space-between;
     align-items: center;
     z-index: 5;
-    background: rgba(255, 255, 255, 0.3);
+    background: var(--header);
     backdrop-filter: blur(10px);
     height: 10px;
     opacity: 0;
@@ -321,13 +390,13 @@ body, html {
   .globe i{
     position: relative;
     font-size: 4rem;
-    color: #141414;
+    color: var(--text-color);
     margin: 0;
     margin-top: 2rem;
   }
   .logo {
     position: relative;
-    color: black;
+    color: var(--text-color);
     font-size: 2rem;
     margin: 0;
     transform: translateX(-100px);
@@ -339,28 +408,28 @@ body, html {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
-    color: #1d1d1f;
+    color: var(--text-color);
     margin-top: 45rem;
   }
   
   .hero-description {
     font-size: 1.2rem;
     margin-bottom: 1rem;
-    color: #1d1d1f;
+    color: var(--text-color);
     margin-top: 0rem;
     font-weight: 575;
   }
   
   .hero-card {
     position: relative;
-    background: #1a1a1a;
+    background: var(--hero);
     padding: 2rem 3rem;
     border-radius: 16px;
     margin-bottom: 2.5rem;
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
     width: 100%;
     max-width: 500px;
-    border: 1px solid white;
+    border: 1px solid var(--bg-color);
   
     display: flex;
     flex-direction: column;
@@ -382,14 +451,16 @@ body, html {
       rgba(255, 255, 255, 0) 100%
     );
     transform: skewX(-20deg);
-    animation: shine 2s infinite;
+    animation: shine 2s ease-in-out infinite;
   }
   
   @keyframes shine {
     0% {
+      opacity: 0;
       left: -75%;
     }
     100% {
+      opacity: 1;
       left: 125%;
     }
   }
@@ -411,7 +482,7 @@ body, html {
     position: relative;
     padding: .75rem 1.75rem;
     background: radial-gradient(circle at 100% 107%, #ff89cc 0%, #9cb8ec 30%, #00ffee 60%, #62c2fe 100%);
-    border: none;
+    border: 1px solid var(--bg-color);
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
@@ -572,7 +643,7 @@ body, html {
 
   .ai-description {
     font-size: 1.1rem;
-    color: #1a1a1a;
+    color: var(--text-color);
     max-width: 480px;
     margin: 0 auto 2rem;
     text-align: center;
