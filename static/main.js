@@ -42,5 +42,6 @@ const sr = ScrollReveal ({
 
 sr.reveal('.header', {origin: 'top',reset: false});
 sr.reveal('.hero-card', {delay: 500, origin: 'bottom',reset: false});
+sr.reveal('.dark-light-btn', {origin: 'left',reset: false});
 
   
