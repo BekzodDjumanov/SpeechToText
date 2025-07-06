@@ -305,6 +305,7 @@ body, html {
     align-items: center;
     justify-content: center;
     z-index: 998;
+    border: 1px solid var(--text-color);
   }
   
   .icon-sun,
@@ -554,7 +555,7 @@ body, html {
     font-weight: 550;
     letter-spacing: 0.5px;
   }
-  .fake {
+  .artificial-intelligence {
     background: linear-gradient(180deg, #999999, #5a9bd8);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
