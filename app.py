@@ -2,7 +2,7 @@ from flask import Flask, request, render_template, redirect, url_for
 import os
 import whisper
 import warnings
-from pymongo.mongo_client import MongoClient
+'''from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 
 uri = "mongodb+srv://BekzodDjumanov:AudiotoText@audiototext.y9os6ok.mongodb.net/?retryWrites=true&w=majority&appName=AudioToText"
@@ -16,7 +16,7 @@ except Exception as e:
     print("Connection failed:", e)
 
 db = client['audio_to_text_db']
-transcriptions_collection = db['transcriptions']
+transcriptions_collection = db['transcriptions']'''
 
 app = Flask(__name__)
 
@@ -64,11 +64,11 @@ def upload_file():
 
         os.remove(filepath)
 
-        doc = {
+        '''doc = {
             "filename": filename,
             "transcription": transcription,
         }
-        transcriptions_collection.insert_one(doc)
+        transcriptions_collection.insert_one(doc)'''
 
         # returns result.html
         return render_template('result.html', transcription=transcription)
