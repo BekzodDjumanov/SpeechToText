@@ -31,7 +31,7 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 # for better results, please select large or medium (tiny, base, small, medium, large, turbo (not recommended for translating non-english tasks))
-model = whisper.load_model("medium")
+model = whisper.load_model("small")
 
 warnings.filterwarnings("ignore", message="FP16 is not supported on CPU")
 
