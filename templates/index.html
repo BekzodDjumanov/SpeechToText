@@ -119,43 +119,4 @@
       }
     });
 
-    gsap.registerPlugin(SplitText, ScrollTrigger);
-
-    document.fonts.ready.then(() => {
-            gsap.set(".hero-text", { opacity: 1 });
-
-            const split = new SplitText(".hero-text", {
-                type: "lines,chars",
-                linesClass: "line",
-                mask: "lines",
-                autoSplit: true
-            });
-
-            gsap.from(split.chars, 1.5, {
-                yPercent: 100,
-                opacity: 0,
-                stagger: 0.1,
-                ease: "expo.out",
-            });
-            });
-
-            document.fonts.ready.then(() => {
-            gsap.set(".hero-description", { opacity: 1 });
-
-            const split = new SplitText(".hero-description", {
-                type: "lines,words",
-                linesClass: "line",
-                mask: "lines",
-                autoSplit: true
-            });
-
-            gsap.from(split.lines, 2, {
-                yPercent: 100,
-                opacity: 0,
-                stagger: 0.1,
-                ease: "expo.out",
-                delay: 2.25,
-            });
-            });
-
 </script>

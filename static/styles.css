@@ -697,6 +697,11 @@ button:hover {
   text-align: center;
   font-weight: 500;
   line-height: 1.4;
+
+  opacity: 0;
+  filter: blur(10px);
+  animation: fadeBlurIn 1s ease-out forwards;
+  animation-delay: 0.75s;
 }
 .figma:hover {
   transform: scale(1.015);
