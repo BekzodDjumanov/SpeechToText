@@ -1,6 +1,11 @@
-# AI Audio-to-Text API 🎙️➡️📝
+# AI Speech-to-Text API 🎙️➡️📝
 
 A Flask-based REST API that uses OpenAI's Speech Recognition model to convert uploaded `.mp3` audio files into transcribed text.
+
+<div align="center">
+  <img src="pre.png" alt="Python IDE" width="45%" style="margin-right: 2rem;" />
+  <img src="result.png" alt="Java IDE" width="45%" />
+</div>
 
 ## 🚀 Features
 
@@ -11,12 +16,15 @@ A Flask-based REST API that uses OpenAI's Speech Recognition model to convert up
 - 🛠️ Fully configured frontend and backend pipeline system designed for deployment
 
 ## 💭 Technological Landscape
+
 With the prevalence of artifical intelligence, the opportunities for discovering new technological capabilities have sprouted. Open AI has conformed to the general public by allowing contribution for their open source platform - Whisper AI. This implementation will spark a crescendo, reverberating the impacts of unbounded technological indulgence. Albeit this decision may seem perilous at best, individual's akin to myself will be able to contribute significant and relevant discoveries into the scope of artifical intelligence.
 
 ## 🔒 Security
-***All files and relavent data is kept anonymous and secured.***
+
+**_All files and relavent data is kept anonymous and secured._**
 
 ⚔️ The framework of this project remains and will not contravene with the ethical foundation of programming and software application. ⚔️
+
 ## 🔧 Requirements
 
 - Python 3.8+
@@ -34,27 +42,34 @@ With the prevalence of artifical intelligence, the opportunities for discovering
 ## 📦 Application
 
 ### Install Python dependencies
+
 ```
 pip install -r requirements.txt
 ```
+
 ### Install FFmpeg
+
 macOS (via Homebrew):
+
 ```
 brew install ffmpeg
 ```
 
 ### Ubuntu
+
 ```
 sudo apt update
 sudo apt install ffmpeg
 ```
 
 ### Windows
+
 ```
 Download and install FFmpeg from https://ffmpeg.org/download.html, then add it to your system's PATH.
 ```
 
 ## ⏯️ Run
+
 ```
 python3 app.py
 ```
