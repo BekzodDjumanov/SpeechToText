@@ -2,6 +2,8 @@
 
 A Flask-based REST API that uses OpenAI's Speech Recognition model to convert uploaded `.mp3` audio files into transcribed text.
 
+⚠️ ⚠️ Due to maintenance costs, I have temporarily shut down the public site. Further information will be provided soon. Thank you for your understanding.
+
 <div align="center">
   <img src="pre.png" alt="Python IDE" width="45%" style="margin-right: 2rem;" />
   <img src="result.png" alt="Java IDE" width="45%" />
